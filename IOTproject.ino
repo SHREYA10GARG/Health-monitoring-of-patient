@@ -1,7 +1,7 @@
 #define USE_ARDUINO_INTERRUPTS true    
 #define DEBUG true
-#define SSID "myfi"     // "SSID-WiFiname"
-#define PASS "shreya@123" // "password"
+#define SSID ""     // "WiFiname"
+#define PASS "" // "password"
 #define IP "184.106.153.149"      // thingspeak.com ip
 #include <SoftwareSerial.h>
 #include <Timer.h>
@@ -15,8 +15,8 @@ String msg = "GET https://api.thingspeak.com/update?api_key=NNYL4SFNR94JGO45&fie
 SoftwareSerial esp8266(10,11);
 
 //Variables
-const int PulseWire = A0;       // PulseSensor PURPLE WIRE connected to ANALOG PIN 0
-const int LED13 = 13;          // The on-board Arduino LED, close to PIN 13.
+const int PulseWire = A0;       
+const int LED13 = 13;          
 int Threshold = 550;           //for heart rate sensor
 float myTemp;
 float myBPM;
@@ -36,7 +36,7 @@ void setup()
   pulseSensor.blinkOnPulse(LED13);       //auto-magically blink Arduino's LED with heartbeat.
   pulseSensor.setThreshold(Threshold);   
 
-  // Double-check the "pulseSensor" object was created and "began" seeing a signal. 
+
    if (pulseSensor.begin()) {
     Serial.println("We created a pulseSensor Object !");  //This prints one time at Arduino power-up,  or on Arduino reset.  
   }
@@ -139,7 +139,7 @@ void getReadings(){
                                                // "myBPM" hold this BPM value now. 
 if (pulseSensor.sawStartOfBeat()) { 
   Serial.println("pulse reading");// Constantly test to see if "a beat happened". 
-Serial.println(myBPM);                        // Print the value inside of myBPM. 
+Serial.println(myBPM);                        // Prints the value inside of myBPM. 
 }
 
   delay(40);            
