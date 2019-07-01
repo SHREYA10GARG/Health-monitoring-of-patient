@@ -1,5 +1,5 @@
 # Patient-Monitoring-System-
-Monitors the health of the patient and sends the data on cloud.
+Monitors the health of the patient and sends the data on cloud mails the family members when patient clicks panic button.
 
 
 Requirements:
